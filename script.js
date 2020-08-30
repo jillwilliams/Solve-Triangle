@@ -59,7 +59,28 @@ const myProblem = () => {
         var answ6 = "alpha " + "= " + alpha + "°" + ", " + "a " + "= " + a2 + ", " + "b " + "= " + b2;
             return answ6;
     }  else
-        return "Try Again";
+    if ( a != 0 && b != 0) {
+        var alpha = (Math.atan(a / b) * 180 / Math.PI).toFixed(1);
+        var beta = (Math.atan(b / a) * 180 / Math.PI).toFixed(1);
+        var c1 = Math.sqrt(a * a + b * b).toFixed(1);
+        var answ7 = "alpha " + "= " + alpha + "°" + ", " + "beta " + "= " + beta + "°" + ", " + "c " + "= " + c1;
+            return answ7;
+    }   else 
+    if (a != 0 && c != 0) {
+        var b1 = (Math.sqrt(c * c - a * a)).toFixed(1);
+        var alpha = (Math.asin(a / c) * 180 / Math.PI).toFixed(1);
+        var beta = (90 - alpha).toFixed(1);
+        var answ8 = "alpha " + "= " + alpha + "°" + ", " + "beta " + "= " + beta + "°" + ", " + "b " + "= " + b1;
+            return answ8;
+    }   else 
+    if (b != 0 && c != 0) {
+        var alpha = (Math.acos(b / c) * 180 / Math.PI).toFixed(1);
+        var beta = (90 - alpha).toFixed(1);
+        var a1 = Math.sqrt(c * c - b * b).toFixed(1);
+        var answ9 = "alpha " + "= " + alpha + "°" + ", " + "beta " + "= " + beta + "°" + ", " + "a " + "= " + a1;
+            return answ9;
+        }   else
+            return "Try Again";
 };
 const myCalc = () => {
     document.getElementById("demo").innerHTML = myProblem();
